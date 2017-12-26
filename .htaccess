@@ -1,0 +1,10 @@
+<IfModule mod_headers.c>
+    RequestHeader unset Proxy
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteRule   ^(\.well-known/.*)$ $1                               [L]
+    RewriteRule   ^$                  src/Infrastructure/Ui/Webroot/   [L]
+    RewriteRule   (.*)                src/Infrastructure/Ui/Webroot/$1 [L]
+</IfModule>

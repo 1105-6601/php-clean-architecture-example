@@ -1,0 +1,22 @@
+{
+    "name": "1105-6601/php-clean-architecture-example",
+    "require": {
+        "nikic/fast-route": "^1.2",
+        "josegonzalez/dotenv": "^3.2",
+        "illuminate/database": "^5.5",
+        "symfony/translation": "^3.4",
+        "symfony/symfony": "^4.0",
+        "kevinlebrun/colors.php": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Human Ordinary",
+            "email": "admin@1ch1n0se.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
