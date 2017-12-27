@@ -75,3 +75,4 @@ php cmd.php -say-hello 1
 # TODO
 
 - Support `QUERY_LOG` flag
+- Add mechanism of DI container
