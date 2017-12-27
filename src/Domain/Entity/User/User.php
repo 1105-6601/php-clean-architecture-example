@@ -2,9 +2,9 @@
 
 namespace App\Domain\Entity\User;
 
-use App\Domain\Entity\Entity;
+use App\Domain\Entity\EntityInterface;
 
-class User extends Entity
+class User implements EntityInterface
 {
     public static function table(): string
     {

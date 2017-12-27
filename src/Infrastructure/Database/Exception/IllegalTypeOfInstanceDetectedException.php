@@ -2,6 +2,6 @@
 
 namespace App\Infrastructure\Database\Exception;
 
-class IllegalTypeOfInstanceDetected extends \RuntimeException
+class IllegalTypeOfInstanceDetectedException extends \RuntimeException
 {
 }

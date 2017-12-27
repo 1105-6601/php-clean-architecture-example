@@ -2,6 +2,6 @@
 
 namespace App\Infrastructure\Database\Exception;
 
-class FailedToResolveEntityClass extends \RuntimeException
+class FailedToResolveEntityClassException extends \RuntimeException
 {
 }

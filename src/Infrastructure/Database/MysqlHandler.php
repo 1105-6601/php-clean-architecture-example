@@ -2,8 +2,9 @@
 
 namespace App\Infrastructure\Database;
 
-use App\Infrastructure\Database\Exception\FailedToResolveEntityClass;
-use App\Infrastructure\Database\Exception\IllegalTypeOfInstanceDetected;
+use App\Domain\Entity\EntityInterface;
+use App\Infrastructure\Database\Exception\FailedToResolveEntityClassException;
+use App\Infrastructure\Database\Exception\IllegalTypeOfInstanceDetectedException;
 use App\Interfaces\Gateway\Database\HandlerInterface;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Database\Eloquent\Model as Eloquent;
@@ -38,13 +39,12 @@ class MysqlHandler implements HandlerInterface
     public function findById(string $entityClass, int $id): \ArrayObject
     {
         if (!class_exists($entityClass)) {
-            throw new FailedToResolveEntityClass();
+            throw new FailedToResolveEntityClassException();
         }
 
-        switch (false) {
-            case method_exists($entityClass, 'table'):
-            case method_exists($entityClass, 'fillable'):
-                throw new IllegalTypeOfInstanceDetected();
+        $interfaces = class_implements($entityClass);
+        if (!isset($interfaces[EntityInterface::class])) {
+            throw new IllegalTypeOfInstanceDetectedException();
         }
 
         $model = new class extends Eloquent {};
